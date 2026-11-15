@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# 1. Check if exactly one argument is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ./temp.sh <celsius>"
+    exit 1
+fi
+
+c="$1"
+
+# 3. Compute Fahrenheit: F = C * 9 / 5 + 32 (Bash integer division)
+f=$(( c * 9 / 5 + 32 ))
+
+# 4. Print it like 25C = 77F
+echo "${c}C = ${f}F"
+
+# 5. Print word based on temperature value
+if [ "$c" -lt 0 ]; then
+    echo "Freezing"
+elif [ "$c" -ge 0 ] && [ "$c" -le 14 ]; then
+    echo "Cold"
+elif [ "$c" -ge 15 ] && [ "$c" -le 29 ]; then
+    echo "Warm"
+else
+    echo "Hot"
+Freezing
